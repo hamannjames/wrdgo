@@ -1,7 +1,8 @@
 import React from 'react';
+import GameBoard from '../components/gameboard/GameBoard';
 
 export default function SinglePlayer() {
   return (
-    <h2>Hello there</h2>
+    <GameBoard />
   )
 }

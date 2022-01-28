@@ -10,6 +10,7 @@ const ButtonStyled = styled.div`
   transform: rotate(var(--rotate)) skew(calc(var(--skew) / 2));
   border-radius: 2px;
   box-shadow: var(--box-shadow);
+  display: inline-block;
   &:hover {
     background-color: ${props => props.theme.colors[props.color + 'Light'] ?? 'var(--primary-light)'};
     transform: rotate(calc(-1 * var(--rotate))) skew(calc(var(--skew) / 2));

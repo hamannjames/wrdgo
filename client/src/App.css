@@ -365,6 +365,10 @@ template {
   --box-shadow: 2px 1px 3px #999;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
