@@ -22,15 +22,19 @@ const ButtonStyled = styled.div`
     text-decoration: none;
     color: inherit;
   }
+  button {
+    background: none;
+    border: inherit;
+  }
 `
 
-export default function Button({ type = 'link', color = "primary", to = '/#', children, onClick, className }) {
+export default function Button({ type = 'link', color = "primary", to = '/#', action = 'button', children, onClick, className }) {
   return (
     <ButtonStyled color={color} className={className}>
       {type === 'link'
         ? <Link to={to} onClick={onClick}>{children}</Link>
         : (type === 'button'
-          ? <button onClick={onClick}>{children}</button>
+          ? <button onClick={onClick} type={action}>{children}</button>
           : <a href={to} onClick={onClick}>{children}</a>
         )
       }
