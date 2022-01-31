@@ -1,7 +1,7 @@
 const express = require('express');
 const { default: fetch } = require('node-fetch');
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3000;
 const { words } = require('./static/words.js');
 const path = require('path');
 
