@@ -2,6 +2,6 @@ import React from 'react';
 
 export default function MultiPlayer() {
   return (
-    <h1>Hello World</h1>
+    <h1>Coming Soon!</h1>
   )
 }

@@ -19,7 +19,10 @@ const theme = {
     accent: 'var(--accent)',
     accentLight: 'var(--accent-light)',
     splash: 'var(--splash)',
-    splashLight: 'var(--splash-light)'
+    splashLight: 'var(--splash-light)',
+    placed: 'var(--splash)',
+    present: 'var(--secondary)',
+    absent: '#999'
   }
 }
 
