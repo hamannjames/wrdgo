@@ -128,10 +128,8 @@ export default function GameGrid({
 
   useEffect(() => {
     if(readOnly) {
-      console.log('effect');
       setAnimating(true);
       setGuessStore(JSON.parse(localStorage.getItem(`${gameMode}_boardState`)));
-      console.log(localStorage.getItem(`${gameMode}_boardState`));
     }
   }, [readOnly]);
 
@@ -222,7 +220,15 @@ export default function GameGrid({
         {modalState && Modals[gameMode][modalState]({word, handleNextRound, handleStartRound, handleReset, streak: loss ? round - 1 : round})}
       </GridStyled>
       <FormStyled onSubmit={handleSubmit}>
-        <input ref={input} disabled={!active} autoFocus maxLength="5" type="text" value={guess} onInput={e => handleInput(e.target.value)} />
+        <input 
+          ref={input} 
+          disabled={!active} 
+          maxLength="5" 
+          type="text" 
+          value={guess} 
+          onInput={e => handleInput(e.target.value)} 
+          onFocus={(e)=>e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length)}
+        />
       </FormStyled>
       {active && <h3>Hit "Enter" to guess</h3>}
     </ContainerStyled>

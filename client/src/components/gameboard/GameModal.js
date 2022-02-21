@@ -55,7 +55,7 @@ const Modals = {
       const maxRound = parseInt(localStorage.getItem('single_maxRound'));
       return <StyledModal>
         <h2>Sweet 😊!</h2>
-        <p>Your streak is {streak}. {streak === maxRound ? 'A new record!' : `Your record is ${maxRound}`}. Keep it going!</p>
+        <p>Your streak is {streak}. {maxRound && (streak === maxRound ? 'A new record!' : `Your record is ${maxRound}`)}. Keep it going!</p>
         <Button color="splash" type="button" onClick={handleNextRound}>Next Round</Button>
       </StyledModal>
     },
@@ -64,7 +64,7 @@ const Modals = {
       return <StyledModal>
         <h2>Shoot 😔</h2>
         <p>The word was {word}</p>
-        <p>Your streak was {streak}. {streak === maxRound ? 'A new record!' : `Your record is ${maxRound}`}. Care to play again?</p>
+        <p>Your streak was {streak}. {maxRound && (streak === maxRound ? 'A new record!' : `Your record is ${maxRound}`)}. Care to play again?</p>
         <Button color="splash" type="button" onClick={handleReset}>Reset</Button>
       </StyledModal>
     }
