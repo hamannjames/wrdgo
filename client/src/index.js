@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React from 'react';
-import { jsx, css, ThemeProvider } from '@emotion/react';
+import { ThemeProvider, Global, css, jsx } from '@emotion/react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './index.css';
@@ -28,6 +28,11 @@ const theme = {
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
+    <Global styles={css`
+      .wrdmo {
+        font-style: italic;
+      }
+    `} />
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>

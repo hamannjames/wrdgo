@@ -2,7 +2,7 @@
 import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const ButtonStyled = styled.div`
   background-color: ${props => props.theme.colors[props.color] ?? 'var(--primary)'};
@@ -21,6 +21,10 @@ const ButtonStyled = styled.div`
     display: inline-block;
     text-decoration: none;
     color: inherit;
+    
+    &.active {
+      border-bottom: 2px solid var(--accent);
+    }
   }
   button {
     background: none;
@@ -28,16 +32,25 @@ const ButtonStyled = styled.div`
   }
 `
 
-export default function Button({ type = 'link', color = "primary", to = '/#', action = 'button', children, onClick, className }) {
+export default function Button({ type = 'link', color = "primary", to = '/#', action = 'button', children, onClick, className, ...props}) {
+  let element;
+
+  switch (type) {
+    case 'link' :
+      element = <Link to={to} onClick={onClick} {...props}>{children}</Link>
+      break;
+    case 'button' :
+      element = <button onClick={onClick} type={action}>{children}</button>
+      break;
+    case 'nav' :
+      element = <NavLink className={({isActive}) => isActive ? 'active' : ''} to={to} onClick={onClick} {...props}>{children}</NavLink>
+      break;
+    default:
+      element = <a href={to} onClick={onClick}>{children}</a>
+  }
   return (
     <ButtonStyled color={color} className={className}>
-      {type === 'link'
-        ? <Link to={to} onClick={onClick}>{children}</Link>
-        : (type === 'button'
-          ? <button onClick={onClick} type={action}>{children}</button>
-          : <a href={to} onClick={onClick}>{children}</a>
-        )
-      }
+      {element}
     </ButtonStyled>
   )
 }

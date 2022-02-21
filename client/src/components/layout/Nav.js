@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Button from './Button';
 
 const MenuStyled = styled.ul`
@@ -26,10 +25,10 @@ export default function Nav() {
     <nav>
       <MenuStyled>
         <li>
-          <ButtonStyled to="/single-player">Single Player</ButtonStyled>
+          <ButtonStyled type="nav" to="/single-player">Single Player</ButtonStyled>
         </li>
         <li>
-          <ButtonStyled to="/multi-player">Multi Player</ButtonStyled>
+          <ButtonStyled type="nav" to="/multi-player">Multi Player</ButtonStyled>
         </li>
       </MenuStyled>
     </nav>

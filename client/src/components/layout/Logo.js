@@ -23,7 +23,7 @@ const LogoStyled = styled.div`
 export default function Logo() {
   return (
     <LogoStyled>
-      <p>WRD<span css={css`font-style: italic`}>GO</span></p>
+      <p>WRDMO</p>
     </LogoStyled>
   )
 }
